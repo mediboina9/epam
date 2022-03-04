@@ -8,6 +8,13 @@ public class Employee {
         this.id = id;
         this.name = name;
     }
+    public static int getStaticMethod(){
+        System.out.println("Static void method");
+        return 5;
+    }
+    public void getNonStaticMethod(){
+        System.out.println(getStaticMethod());
+    }
 
     public int getId() {
         return id;
