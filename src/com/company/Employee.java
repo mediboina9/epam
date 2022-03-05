@@ -3,17 +3,12 @@ package com.company;
 public class Employee {
     private  int id;
     private String name;
+    private String dept;
 
-    public Employee(int id, String name) {
+    public Employee(int id, String name, String dept) {
         this.id = id;
         this.name = name;
-    }
-    public static int getStaticMethod(){
-        System.out.println("Static void method");
-        return 5;
-    }
-    public void getNonStaticMethod(){
-        System.out.println(getStaticMethod());
+        this.dept = dept;
     }
 
     public int getId() {
@@ -32,11 +27,20 @@ public class Employee {
         this.name = name;
     }
 
+    public String getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", dept='" + dept + '\'' +
                 '}';
     }
 }
