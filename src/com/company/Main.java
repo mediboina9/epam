@@ -2,7 +2,9 @@ package com.company;
 
 
 import java.io.*;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -20,10 +22,17 @@ public class Main {
 
         }
         list.stream().distinct().forEach(System.out::println);
+        C.xyz();
 
+        int arr[]={1,2,3,4,5,6,7,7};
+        ArrayList<Integer> list1=new ArrayList<>(){
+            {
+                add(1);add(2);add(3);add(2);add(4);add(2);
+            }
+        };
 
-
-
+        Collections.sort(list1);
+        System.out.println(list1.get(list1.size()-3));
 
 
     }
