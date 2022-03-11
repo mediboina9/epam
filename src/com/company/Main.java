@@ -46,12 +46,15 @@ public class Main {
         //3rd Question
         hack_func2(44,4,4,1,485);
         hack_func2(new double[]{1,2,3});
+        hack_func2(1,2);
         //4th Question
         SubClass subClass=new SubClass(90);
         System.out.println("4th Question"+subClass.number);
     }
-
     private static void hack_func2(double... doubles) {
+       // private static void hack_func2(int x,double... doubles) {
+
+    //private static void hack_func2(double... doubles,int y) {
     if(doubles.length==0){
         System.out.println("No Array");
     }
