@@ -1,45 +1,54 @@
 package com.company;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
 
-       int arr[]={1,5,3,8,5};
-       int j,temp;
-       for(int i=2;i<arr.length;i++) {
-           j = i - 1;
-           temp = arr[i];
+        ArrayList<String> items=new ArrayList<>(){
+            {
+                add("fan");add("fan");add("bulb");add("buld");
+            }
+        };
+        ArrayList<Integer> price=new ArrayList<>(){
+            {
+                add(1400);add(1400);add(100);add(80);
+            }
+        };
+        ArrayList<Integer> quantity=new ArrayList<>(){
+            {
+                add(2);add(2);add(1);add(10);
+            }
+        };
+        int duplicates=getDuplipactes(items,price,quantity);
+        System.out.println(items.size()-duplicates);
 
-           while (j >= 0 && arr[j] > temp) {
-               arr[j + 1] = arr[j];
-               j--;
-           }
-           arr[j + 1] = temp;
-       }
-        Arrays.stream(arr).forEach(System.out::println);
-
-
-/*
-oddList=list.stream().filter(e->e.getId()%2==0).collect(Collecotrs.toList);
-
-HashMap<Integer, Integer> hashMap=new HashMap<>();
-    if(int i=0;i<oddList.size();i++){
-        if(hashMap.get(oddList.get(i))==null)
-        {
-            hashMap.put(oddList.get(i),1);
-        }
-        else if(hashMap.get(oddList.get(i))>0)
-        {
-            hashMap.put(oddList.get(i),hashMap.get(oddList.get(i))+1);
-        }
-        }
-
-    hashMap.entrySet().stream().forEach(System.out::println);*/
 
 
     }
+    public static int getDuplipactes(List<String> items, List<Integer> price, List<Integer> quantity){
+        int duplicates=0;
+        for(int i=0;i< items.size();i++){
+            for(int j=i+1;j<items.size();j++){
+                if(items.get(i).equals(items.get(j))){
+                    //System.out.println("Hello equal items");
+                    if(price.get(i).equals(price.get(j))){
+                       // System.out.println("Hello equal price");
+                        if(quantity.get(i).equals(quantity.get(j))){
+                            //System.out.println("Hello equal items");
+
+                            duplicates++;
+                        }
+                    }
+                }
+            }
+        }
+        return duplicates;
+    }
+
 }
