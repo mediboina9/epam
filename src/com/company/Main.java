@@ -10,45 +10,27 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ArrayList<String> items=new ArrayList<>(){
-            {
-                add("fan");add("fan");add("bulb");add("buld");
-            }
-        };
-        ArrayList<Integer> price=new ArrayList<>(){
-            {
-                add(1400);add(1400);add(100);add(80);
-            }
-        };
-        ArrayList<Integer> quantity=new ArrayList<>(){
-            {
-                add(2);add(2);add(1);add(10);
-            }
-        };
-        int duplicates=getDuplipactes(items,price,quantity);
-        System.out.println(items.size()-duplicates);
+    ImmutableClass obj=new ImmutableClass(1,"Siva");
+        System.out.println(obj);
 
+        obj=new ImmutableClass(2,"Siva");
+        System.out.println(obj);
 
+        String s1="siva";
+        String s2="Satya";
+        System.out.println(s1+" hashcode "+s1.hashCode());
+        s1=s1+"satya";
+        System.out.println(s1+" hashcode "+s1.hashCode());
+        s1="siva";
+        System.out.println(s1+" hascode "+s1.hashCode());
 
-    }
-    public static int getDuplipactes(List<String> items, List<Integer> price, List<Integer> quantity){
-        int duplicates=0;
-        for(int i=0;i< items.size();i++){
-            for(int j=i+1;j<items.size();j++){
-                if(items.get(i).equals(items.get(j))){
-                    //System.out.println("Hello equal items");
-                    if(price.get(i).equals(price.get(j))){
-                       // System.out.println("Hello equal price");
-                        if(quantity.get(i).equals(quantity.get(j))){
-                            //System.out.println("Hello equal items");
+        System.out.println(s2+" hashcode "+s2.hashCode());
+        String s3=s1+s2;
+        System.out.println(s3+" hashcode "+s3.hashCode());
+        int a=10;
+        int b=20;
+        System.out.println(1+2+a+b);
 
-                            duplicates++;
-                        }
-                    }
-                }
-            }
-        }
-        return duplicates;
     }
 
 }
